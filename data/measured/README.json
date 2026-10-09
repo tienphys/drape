@@ -1,0 +1,93 @@
+{
+ "device": "ibm_brisbane",
+ "qubit": 109,
+ "transition": "|1> <-> |2>",
+ "anharmonicity_GHz": -0.3071,
+ "pulse": {
+  "shape": "truncated Gaussian",
+  "duration_ns": 20,
+  "sigma_ns": 5,
+  "rough_pi_over_2_amplitude": 0.2512
+ },
+ "files": {
+  "rabi01_brisbane109.npz": {
+   "what": "0-1 Rabi oscillation, P1 vs amplitude (60 ns pulse), Oct 2025",
+   "keys": [
+    "amp_sweep",
+    "population_1"
+   ]
+  },
+  "rabi12before_active_reset_brisbane109.npz": {
+   "what": "1-2 Rabi, P2 vs amplitude of the 20 ns pulse before correction (from the 2024 duration study, 40 dt, -0.1..1.0, active reset)",
+   "keys": [
+    "amp_sweep",
+    "population_2"
+   ]
+  },
+  "rabi12after_amps_-0.05_0.3_brisbane109.npz": {
+   "what": "1-2 Rabi with the corrected 20 ns pulse played twice, 300 amplitudes x 10000 shots, IBM job cyb4se57v8tg008fxxeg (26 Jan 2025)",
+   "keys": [
+    "amp_sweep",
+    "iq_data (300,10000,1) complex64",
+    "pop2"
+   ]
+  },
+  "rabi23_active_reset_pi12_pi01_brisbane109.npz": {
+   "what": "2-3 Rabi, P3 vs amplitude read out through a pi12 pi01 swap, Oct 2025",
+   "keys": [
+    "amp_sweep",
+    "population_3"
+   ]
+  },
+  "lambda_values.npz": {
+   "what": "fitted drive strengths lambda_0, lambda_1, lambda_2 = 0.526, 0.621, 0.753 (notebook 02)",
+   "keys": [
+    "lambdas"
+   ]
+  },
+  "ape_data.npz": {
+   "what": "APE fringes: rows 0-3 bare Gaussian k = 1,3,5,7 (jobs cw0sjvk79ws0008z27j0, cw0t1qe4v2e0008sfxeg), rows 4-7 with DRAG (cw0twskjz3x0008j6xx0, cw0v84079ws0008z2as0), Oct 2024; pe_pops[:, :, 0] is P|1>",
+   "keys": [
+    "angle_swept (75)",
+    "pe_pops (8,75,3)"
+   ]
+  },
+  "aae_21pts_0_40_0.2512.npz": {
+   "what": "ARE/AAE with the bare Gaussian at amplitude 0.2512, N = 0..40 pairs, job cw0s2fsrxqkg008e2cag (5 Oct 2024)",
+   "keys": [
+    "N",
+    "pop2"
+   ]
+  },
+  "aae_21pts_0_40_drag_0.2512.npz": {
+   "what": "same with the DRAG-Y correction only, job cw0w06rvka8g008b997g",
+   "keys": [
+    "N_values",
+    "pop2"
+   ]
+  },
+  "aae_21pts_0_40_0.2365_nodrag.npz": {
+   "what": "ARE with the amplitude rescaled to 0.2365 but no DRAG, job cvr07a5zrwzg008axdc0",
+   "keys": [
+    "N",
+    "pop2"
+   ]
+  },
+  "aae_21pts_0_40_0.2365_drag_3runs.npz": {
+   "what": "ARE with amplitude 0.2365 and DRAG (beta ~ -0.41), three repeats, jobs cw0wed14v2e0008sg2gg, cw13qsqvka8g008b9vg0, cw24b0crxqkg008e56j0",
+   "keys": [
+    "N",
+    "pop2s (3,21)"
+   ]
+  },
+  "drape_50pts_-1.0_-0.2_0.2365_asterisk.npz": {
+   "what": "the measured DRAPE sweep: P2 at phi = pi/2 vs DRAG beta in [-1, -0.2] (50 points) for k = 1,3,5,7,9,11, amplitude 0.2365, jobs cwhsrpt0r6b0008pqb90 / cwhvkgy543p00086em8g (Feb 2025); y_fit_pops are linear fits",
+   "keys": [
+    "beta_swept (50)",
+    "drape_pops (6,50,3)",
+    "y_fit_pops (6,50)"
+   ]
+  }
+ },
+ "raw_shots": "every job's single-shot IQ data is in the PulsatingPulseShop repository (github.com/ngdnhtien/PulsatingPulseShop, release v1.0-data)"
+}
